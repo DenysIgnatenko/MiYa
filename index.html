@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiYa - Стратегічний маркетинг</title>
+    
+    <!-- Fonts CDN -->
+    <link href="https://fonts.cdnfonts.com/css/gotham-pro" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#242424',
+                        cardBg: '#363434',
+                        brandRed: '#A0736F',
+                        brandBlue: '#1B60A9',
+                    },
+                    fontFamily: {
+                        sans: ['"Gotham Pro"', 'sans-serif'],
+                        display: ['"Gotham Pro"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'grad-1': 'linear-gradient(28.33deg, #1661AD -2.2%, #3F2752 25.59%, #8F5C51 96.67%)',
+                        'grad-2': 'linear-gradient(30.19deg, #6C455D -2.65%, #B98978 96.76%)',
+                        'grad-3': 'linear-gradient(33.58deg, #1B60A9 40.18%, #8F5C51 96.92%)',
+                        'grad-4': 'linear-gradient(26.99deg, #1B60A9 11.74%, #764E5C 66.44%, #5A79A5 115.16%)',
+                        'grad-5': 'linear-gradient(43.15deg, #A37A62 22.39%, #4F5BE3 81.28%)',
+                        'grad-6': 'linear-gradient(43.15deg, #4F97C7 22.39%, #4F5BE3 81.28%)', /* Inactive Btn */
+                        'grad-7': 'linear-gradient(82.88deg, #2250FF 8.41%, #895851 84.33%)', /* Active Btn */
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #121212; /* Темний фон сторінки */
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-6px) rotate(1.5deg); }
+        }
+        .animate-float-slow {
+            animation: float-slow 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.04); }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 8s ease-in-out infinite;
+        }
+
+        /* Hide scrollbar utility */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Figma Desktop Scale CSS */
+        @media (min-width: 1024px) {
+            .hero-desktop-container {
+                width: 1440px;
+                height: 950px;
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        @media (min-width: 1024px) and (max-width: 1440px) {
+            .hero-desktop-scale-wrapper {
+                --scale-factor: calc(100vw / 1440);
+                transform: scale(var(--scale-factor));
+                transform-origin: top center;
+                height: calc(100vw * 950 / 1440);
+                margin-bottom: calc(100vw * 950 / 1440 - 950px);
+            }
+        }
+        .vertical-text {
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+        }
+
+        /* Custom glow styles for phone cards */
+        .phone-glow-pink {
+            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.6), 0 0 35px rgba(185, 137, 120, 0.18);
+        }
+        .phone-glow-pink:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 50px rgba(185, 137, 120, 0.4);
+        }
+
+        .phone-glow-purple {
+            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.6), 0 0 35px rgba(63, 39, 82, 0.28);
+        }
+        .phone-glow-purple:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 50px rgba(22, 97, 173, 0.4);
+        }
+
+        .phone-glow-blue {
+            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.6), 0 0 35px rgba(79, 91, 227, 0.18);
+        }
+        .phone-glow-blue:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 50px rgba(79, 91, 227, 0.4);
+        }
+
+        /* Flicker animation for fire emoji */
+        @keyframes flicker {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+                filter: drop-shadow(0 0 2px rgba(239, 68, 68, 0.2)) drop-shadow(0 0 5px rgba(245, 158, 11, 0.2));
+                opacity: 1;
+            }
+            20% {
+                transform: scale(0.92) rotate(-3deg);
+                filter: drop-shadow(0 0 1px rgba(239, 68, 68, 0.1)) drop-shadow(0 0 3px rgba(245, 158, 11, 0.1));
+                opacity: 0.85;
+            }
+            40% {
+                transform: scale(1.08) rotate(3deg);
+                filter: drop-shadow(0 0 4px rgba(239, 68, 68, 0.3)) drop-shadow(0 0 7px rgba(245, 158, 11, 0.3));
+                opacity: 0.95;
+            }
+            60% {
+                transform: scale(0.96) rotate(-1deg);
+                filter: drop-shadow(0 0 2px rgba(239, 68, 68, 0.2)) drop-shadow(0 0 4px rgba(245, 158, 11, 0.15));
+                opacity: 0.9;
+            }
+            80% {
+                transform: scale(1.04) rotate(2deg);
+                filter: drop-shadow(0 0 3px rgba(239, 68, 68, 0.25)) drop-shadow(0 0 6px rgba(245, 158, 11, 0.25));
+                opacity: 1;
+            }
+        }
+        .animate-flicker {
+            display: inline-block;
+            animation: flicker 1.8s infinite ease-in-out;
+            transform-origin: bottom center;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden bg-[#121212] text-white">
+
+    <header class="absolute top-0 left-0 right-0 py-6 px-6 md:px-12 max-w-7xl mx-auto z-50 flex justify-between items-center">
+        <div class="flex flex-col gap-1">
+            <!-- SVG Paw Print Icon -->
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white">
+                <path d="M12 14c-1.8 0-3.5 1-3.5 3 0 2 1.5 3 3.5 3s3.5-1 3.5-3c0-2-1.7-3-3.5-3z" />
+                <circle cx="6.5" cy="11.5" r="1.8" />
+                <circle cx="10" cy="8" r="1.8" />
+                <circle cx="14" cy="8" r="1.8" />
+                <circle cx="17.5" cy="11.5" r="1.8" />
+            </svg>
+            <div class="font-display font-bold text-2xl flex items-baseline gap-2 tracking-wide">
+                MIYA <span class="hidden sm:inline font-sans font-normal text-[11px] text-gray-400 uppercase tracking-[0.2em]">advertising agency</span>
+            </div>
+        </div>
+        <nav class="hidden md:flex gap-8 text-sm font-medium tracking-wide">
+            <a href="#services-cards" class="hover:text-blue-400 transition-colors duration-300">Що я вирішую</a>
+            <a href="#packages" class="hover:text-blue-400 transition-colors duration-300">Для кого?</a>
+            <a href="#services-cards" class="hover:text-blue-400 transition-colors duration-300">Кейси</a>
+            <a href="#about" class="hover:text-blue-400 transition-colors duration-300">Про мене</a>
+        </nav>
+        <a href="#contact" class="bg-grad-6 hover:bg-grad-7 rounded-[86px] px-5 py-2.5 md:px-[34px] md:py-[13px] text-white text-sm md:text-[18px] transition-all duration-300 shadow-[0_4px_20px_rgba(79,91,227,0.3)] hover:shadow-[0_4px_25px_rgba(137,88,81,0.4)] hover:scale-105 shrink-0">
+            Написати мені
+        </a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-desktop-scale-wrapper w-full overflow-visible bg-[#121212] relative">
+        
+        <!-- Mobile/Tablet Layout (block lg:hidden) -->
+        <div class="block lg:hidden flex flex-col items-center pt-28 pb-12 px-6 md:px-16 gap-8 w-full relative">
+            <!-- Floating Vertical Texts on Edges -->
+            <div class="absolute left-2 md:left-6 top-1/4 text-white/10 uppercase text-[10px] tracking-[0.4em] font-semibold origin-left -rotate-90 select-none pointer-events-none">
+                Таргетолог
+            </div>
+            <div class="absolute left-2 md:left-6 bottom-20 text-white/10 uppercase text-[10px] tracking-[0.4em] font-semibold origin-left -rotate-90 select-none pointer-events-none">
+                2026
+            </div>
+
+            <!-- Stats -->
+            <div class="flex gap-10">
+                <div>
+                    <h3 class="text-4xl font-bold mb-1.5 text-white">+200</h3>
+                    <p class="text-gray-400 text-xs font-medium uppercase tracking-wider leading-relaxed">виконаних<br>проєктів</p>
+                </div>
+                <div>
+                    <h3 class="text-4xl font-bold mb-1.5 text-white">$121 703</h3>
+                    <p class="text-gray-400 text-xs font-medium uppercase tracking-wider leading-relaxed">максимальний<br>денний бюджет</p>
+                </div>
+            </div>
+
+            <!-- Title -->
+            <div class="my-2 text-center">
+                <h1 class="font-display text-5xl md:text-[64px] leading-tight mb-4 text-white font-extrabold uppercase tracking-wide">
+                    СТРАТЕГІЧНИЙ<br>МАРКЕТИНГ
+                </h1>
+            </div>
+
+            <!-- Mobile Phone Mockup -->
+            <div class="w-[300px] md:w-[360px] relative z-10 my-4">
+                <!-- Glowing circle -->
+                <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] md:w-[340px] md:h-[340px] rounded-full bg-gradient-to-tr from-[#1B60A9]/45 via-[#8F5C51]/40 to-[#3F2752]/50 blur-[70px] -z-10"></div>
+                <img src="images/phone.webp" alt="Телефон макет" class="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.5)]">
+            </div>
+
+            <!-- Title Right -->
+            <div class="w-full text-center">
+                <h2 class="font-display text-3xl md:text-4xl font-extrabold leading-tight text-white uppercase">
+                    НЕ ТІЛЬКИ ТАРГЕТ,<br>АЛЕ Й КОНТЕНТ
+                </h2>
+            </div>
+
+            <!-- Description & CTA -->
+            <div class="flex flex-col items-center gap-6 w-full text-center">
+                <p class="text-gray-300 text-sm md:text-base leading-relaxed max-w-xs">
+                    Я не той, що робить "візуальчик".<br>
+                    Я та, хто знає, як саме контент<br>
+                    впливає на продажі.
+                </p>
+                <a href="#contact" class="bg-grad-7 hover:bg-grad-6 rounded-[86px] px-8 py-3.5 text-white text-base font-semibold transition-all duration-300 shadow-[0_4px_25px_rgba(34,80,255,0.3)] hover:scale-105 inline-block text-center w-full sm:w-auto">
+                    Залишити заявку
+                </a>
+            </div>
+
+            <!-- Discount -->
+            <div class="flex items-center gap-4 mt-4">
+                <div class="text-5xl md:text-6xl font-bold text-white leading-none">-30%</div>
+                <p class="text-gray-400 text-xs font-medium uppercase tracking-wider leading-normal text-left">
+                    Залиши заявку і<br>отримай знижку<br>на перший місяць
+                </p>
+            </div>
+        </div>
+
+        <!-- Desktop Layout (hidden lg:block) -->
+        <div class="hidden lg:block hero-desktop-container relative overflow-visible">
+            <!-- Floating Vertical Texts on Edges -->
+            <div class="absolute left-6 top-1/4 text-white/10 uppercase text-[10px] tracking-[0.4em] font-semibold origin-left -rotate-90 select-none pointer-events-none">
+                Таргетолог
+            </div>
+            <div class="absolute left-6 bottom-20 text-white/10 uppercase text-[10px] tracking-[0.4em] font-semibold origin-left -rotate-90 select-none pointer-events-none">
+                2026
+            </div>
+
+            <!-- Background glow for left column -->
+            <div class="absolute -left-20 top-1/4 w-72 h-72 bg-grad-1 rounded-full blur-[90px] opacity-35 -z-10 animate-pulse-slow"></div>
+
+            <!-- Large Phone Mockup -->
+            <div class="absolute left-1/2 top-[100px] transform -translate-x-1/2 w-[1118px] h-[1118px] rounded-[1122px] z-0 pointer-events-none select-none">
+                <!-- Big Glowing radial gradient circle behind the phone -->
+                <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-[#1B60A9]/45 via-[#8F5C51]/40 to-[#3F2752]/50 blur-[90px] xl:blur-[120px] transform scale-125 -z-10"></div>
+                <img src="images/phone.webp" alt="Телефон макет" class="w-full h-full object-contain drop-shadow-[0_20px_45px_rgba(0,0,0,0.55)] opacity-100">
+            </div>
+
+            <!-- Stats Block -->
+            <div class="absolute top-[195px] left-[154px] w-[498px] h-[105px] flex gap-[68px] z-10 items-start select-none">
+                <div class="flex flex-col">
+                    <h3 class="text-4xl font-bold mb-1.5 text-white leading-none">+200</h3>
+                    <p class="text-gray-400 text-xs font-medium uppercase tracking-wider leading-relaxed">виконаних<br>проєктів</p>
+                </div>
+                <div class="flex flex-col">
+                    <h3 class="text-4xl font-bold mb-1.5 text-white leading-none">$121 703</h3>
+                    <p class="text-gray-400 text-xs font-medium uppercase tracking-wider leading-relaxed">максимальний<br>денний бюджет</p>
+                </div>
+            </div>
+
+            <!-- Title Right (НЕ ТІЛЬКИ ТАРГЕТ, АЛЕ Й КОНТЕНТ) -->
+            <div class="absolute top-[285px] left-[807px] w-[511px] h-[126px] z-10">
+                <h2 class="font-display text-[42px] font-extrabold leading-[1.1] text-white uppercase tracking-wide text-left">
+                    НЕ ТІЛЬКИ ТАРГЕТ,<br>АЛЕ Й КОНТЕНТ
+                </h2>
+            </div>
+
+            <!-- Title Left (СТРАТЕГІЧНИЙ МАРКЕТИНГ) -->
+            <div class="absolute top-[448px] left-[122px] w-[486px] h-[134px] z-10">
+                <h1 class="font-display text-[54px] leading-[1.05] text-white font-extrabold uppercase tracking-wide text-left">
+                    СТРАТЕГІЧНИЙ<br>МАРКЕТИНГ
+                </h1>
+            </div>
+
+            <!-- Description & Button Right -->
+            <div class="absolute top-[640px] left-[960px] w-[358px] h-[184px] flex flex-col gap-[32px] z-10 text-left items-start">
+                <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                    Я не той, що робить "візуальчик".<br>
+                    Я та, хто знає, як саме контент<br>
+                    впливає на продажі.
+                </p>
+                <a href="#contact" class="bg-grad-7 hover:bg-grad-6 rounded-[86px] px-8 py-3.5 text-white text-base font-semibold transition-all duration-300 shadow-[0_4px_25px_rgba(34,80,255,0.3)] hover:scale-105 inline-block text-center w-full sm:w-auto">
+                    Залишити заявку
+                </a>
+            </div>
+
+            <!-- Discount Left -->
+            <div class="absolute top-[835px] left-[122px] w-[321px] h-[60px] flex gap-[15px] z-10 items-center">
+                <div class="text-[52px] font-bold text-white leading-none">-30%</div>
+                <p class="text-gray-400 text-[10px] font-medium uppercase tracking-wider leading-snug">
+                    Залиши заявку і отримай знижку на перший місяць
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-24 px-6 md:px-12 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            
+            <!-- Block 1: Intro + Cactus (Top Left, Col 1) -->
+            <div class="flex flex-col justify-between p-4 min-h-[420px]">
+                <div>
+                    <h2 class="font-display text-4xl mb-6 font-bold text-white">Про мене</h2>
+                    <p class="text-gray-400 text-[14px] font-semibold uppercase tracking-wider leading-relaxed max-w-[340px]">
+                        МЕНЕ ЗВАТИ ДАР'Я ПЕНТІЛО, Я CEO “PENTILO AGENCY” ТА SMM-СПЕЦІАЛІСТ.
+                    </p>
+                </div>
+                <div class="flex items-center justify-center py-6 select-none">
+                    <img src="images/cactus%20(1).webp" alt="Кактус" class="w-48 h-auto animate-float-slow">
+                </div>
+            </div>
+
+            <!-- Block 2: 120% Card (Top Middle, Col 2) -->
+            <div class="bg-grad-1 border border-white/10 rounded-[32px] p-8 flex flex-col justify-between min-h-[480px] group hover:border-white/20 transition-all duration-500">
+                <div>
+                    <h3 class="text-6xl font-extrabold mb-4 text-white tracking-tight">120%</h3>
+                    <p class="text-white/80 text-[16px] leading-relaxed">Ні, не той, що робить "візуальчик". Я та, хто знає, як саме контент впливає на продажі.</p>
+                </div>
+                <div class="w-full h-44 rounded-2xl overflow-hidden mt-6">
+                    <img src="images/helga02610_Create_a_photo_of_a_beautiful_brunette_girl_her_hair_b7c96c19-8e8e-46.webp" alt="Дар'я" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                </div>
+            </div>
+
+            <!-- Block 3: Profile + Bullets (Top Right, Col 3) -->
+            <div class="flex flex-col justify-between p-4 min-h-[420px]">
+                <div class="mb-6">
+                    <img src="images/helga02610_Create_a_photo_of_a_beautiful_brunette_her_hair_in_a_9ff4a7fd-34a4-4b.webp" alt="Дар'я" class="w-40 h-40 rounded-[28px] object-cover">
+                </div>
+                
+                <div class="flex flex-col gap-6">
+                    <!-- Bullet 1 -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0 mt-0.5">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </div>
+                        <p class="text-[16px] text-gray-300 leading-relaxed font-medium">
+                            Знає, чому рекламні оголошення іноді не досягають своєї мети та як це виправити.
+                        </p>
+                    </div>
+                    
+                    <!-- Bullet 2 -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0 mt-0.5">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </div>
+                        <p class="text-[16px] text-gray-300 leading-relaxed font-medium">
+                            А ще як обробка клієнтів в діректі зрізає цінних клієнтів, яких ми привели завдяки маркетинговій стратегії.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block 4: Memoji Heart + Stats (Bottom Left-Middle, spans 2 columns) -->
+            <div class="lg:col-span-2 bg-grad-2 border border-white/10 rounded-[32px] p-8 flex flex-col sm:flex-row justify-between gap-8 group hover:border-white/20 transition-all duration-500">
+                <div class="flex flex-col items-center sm:items-start justify-center select-none shrink-0">
+                    <img src="images/Type=Heart.webp" alt="Heart Memoji" class="w-24 h-auto animate-float">
+                    <div class="bg-white text-black text-[11px] font-bold px-4 py-2 rounded-2xl rounded-tl-none shadow-lg mt-3 relative text-center sm:text-left">
+                        Ми вже з'їли @ на цих задачах.
+                    </div>
+                </div>
+
+                <div class="flex flex-col justify-between gap-6 flex-grow">
+                    <!-- Top Phone Icon + Text -->
+                    <div class="flex items-start gap-3 bg-white/5 border border-white/5 rounded-2xl p-3">
+                        <svg class="w-6 h-6 text-white/60 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="7" y="3" width="10" height="18" rx="2" ry="2"/>
+                            <line x1="11" y1="18" x2="13" y2="18"/>
+                        </svg>
+                        <p class="text-xs text-gray-300 font-medium leading-snug">
+                            більше 50 кейсів, якщо не можете знайти схожу сферу до вашої, напишіть мені
+                        </p>
+                    </div>
+
+                    <!-- Bottom Stats Row -->
+                    <div class="flex gap-8 sm:gap-12 mt-2">
+                        <!-- Stat 1 -->
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-1">
+                                <span class="text-6xl font-extrabold text-white leading-none tracking-tighter">10</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-white/70 block vertical-text">років</span>
+                            </div>
+                            <p class="text-[11px] text-gray-400 font-medium leading-relaxed max-w-[140px] mt-2">
+                                досвіду роботи з онлайн-рекламою
+                            </p>
+                        </div>
+                        
+                        <!-- Stat 2 -->
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-1">
+                                <span class="text-6xl font-extrabold text-white leading-none tracking-tighter">$15</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-white/70 block vertical-text">млн</span>
+                            </div>
+                            <p class="text-[11px] text-gray-400 font-medium leading-relaxed max-w-[170px] mt-2">
+                                обсяг рекламного бюджету, який нам довірили
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block 5: Avatars + Google Rating (Bottom Right, Col 3) -->
+            <div class="bg-grad-3 border border-white/10 rounded-[32px] p-8 flex flex-col justify-between min-h-[280px] group hover:border-white/20 transition-all duration-500">
+                <div class="flex flex-col gap-2">
+                    <div class="flex -space-x-3 select-none">
+                        <img class="inline-block h-8 w-8 rounded-full ring-2 ring-[#242424] object-cover" src="images/Frame%201969.webp" alt="Avatar 1">
+                        <img class="inline-block h-8 w-8 rounded-full ring-2 ring-[#242424] object-cover" src="images/Frame%201969_2.webp" alt="Avatar 2">
+                        <img class="inline-block h-8 w-8 rounded-full ring-2 ring-[#242424] object-cover" src="images/Frame%201969_3.webp" alt="Avatar 3">
+                        <img class="inline-block h-8 w-8 rounded-full ring-2 ring-[#242424] object-cover" src="images/Frame%201969_4.webp" alt="Avatar 4">
+                        <img class="inline-block h-8 w-8 rounded-full ring-2 ring-[#242424] object-cover" src="images/helga02610_Create_a_photo_of_a_beautiful_brunette_her_hair_in_a_9ff4a7fd-34a4-4b.webp" alt="Avatar 5">
+                    </div>
+                    <span class="text-xs font-semibold text-white/80 mt-2">4000+ запущеної реклами</span>
+                </div>
+
+                <div>
+                    <div class="flex items-baseline">
+                        <span class="text-7xl font-extrabold text-white leading-none tracking-tight">4.7</span>
+                        <span class="text-2xl font-bold text-white/70 ml-1">/5</span>
+                    </div>
+                    <p class="text-[11px] text-gray-400 font-semibold uppercase tracking-wider mt-2 leading-none">
+                        рейтинг на основі Google відгуків
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section id="services-cards" class="py-20 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
+        <h3 class="font-display text-xl mb-4 text-center md:text-left text-gray-400 uppercase tracking-widest">
+            Кейси
+        </h3>
+        <h2 class="font-display text-4xl md:text-5xl mb-12 text-center md:text-left font-bold">
+            У тебе буде все, що<br>потрібно для успіху
+        </h2>
+        
+        <!-- Overflow Scrollable row -->
+        <div class="flex overflow-x-auto lg:overflow-x-visible lg:justify-center gap-8 pb-8 mt-16 scrollbar-hide snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0">
+            
+            <!-- Картка 1: SPEAK'N'ROLL -->
+            <div class="w-[300px] md:w-[350px] shrink-0 snap-start relative border border-white/10 rounded-[32px] group hover:border-white/20 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(79,51,83,0.35)] transition-all duration-500 bg-grad-1 p-4 flex flex-col">
+                
+                <div class="h-72 md:h-80 relative overflow-hidden rounded-[24px]">
+                    <img src="images/SPEAK’N’ROLL.webp" alt="SPEAK'N'ROLL" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                
+                <div class="px-4 pb-4 pt-6 relative z-10 flex-grow flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold mb-3 text-center uppercase tracking-widest text-white">SPEAK’N’ROLL</h3>
+                        <p class="text-white/80 text-sm text-center mb-8 min-h-[60px]">
+                            Курси польської мови для дітей та дорослих
+                        </p>
+                    </div>
+                    
+                    <div class="flex justify-between items-center pt-6 border-t border-white/20">
+                        <div class="text-center w-1/2 border-r border-white/20">
+                            <span class="block text-xl font-bold text-white mb-1">71 179</span>
+                            <span class="block text-[11px] text-white/60 uppercase tracking-wider">кліків</span>
+                        </div>
+                        <div class="text-center w-1/2">
+                            <span class="block text-xl font-bold text-white mb-1">208 грн</span>
+                            <span class="block text-[11px] text-white/60 uppercase tracking-wider">ціна заявки</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Картка 2: PLUSOBJECT (З котом) -->
+            <div class="w-[300px] md:w-[350px] shrink-0 snap-start relative border border-white/10 rounded-[32px] overflow-visible group hover:border-white/20 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(148,105,105,0.35)] transition-all duration-500 bg-grad-2 p-4 flex flex-col">
+                
+                <!-- Вирівняний кіт -->
+                <div class="absolute -top-[82px] left-1/2 transform -translate-x-1/2 z-30 w-32 h-auto pointer-events-none group-hover:-translate-y-1.5 transition-transform duration-500">
+                     <img src="images/cat-sleeping.webp" alt="Кіт" class="w-full h-auto drop-shadow-2xl">
+                </div>
+
+                <div class="h-72 md:h-80 relative overflow-hidden rounded-[24px]">
+                    <img src="images/PLUSOBJECT.webp" alt="PLUSOBJECT" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                
+                <div class="px-4 pb-4 pt-6 relative z-10 flex-grow flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold mb-3 text-center uppercase tracking-widest text-white">PLUSOBJECT</h3>
+                        <p class="text-white/80 text-sm text-center mb-8 min-h-[60px]">
+                            Вироби зі скла, авторські стакани ручної роботи, проєкт преміум класу
+                        </p>
+                    </div>
+                    
+                    <div class="flex justify-between items-center pt-6 border-t border-white/20">
+                        <div class="text-center w-1/2 border-r border-white/20">
+                            <span class="block text-xl font-bold text-white mb-1">34 155</span>
+                            <span class="block text-[11px] text-white/60 uppercase tracking-wider">кліків</span>
+                        </div>
+                        <div class="text-center w-1/2">
+                            <span class="block text-xl font-bold text-white mb-1">90 грн</span>
+                            <span class="block text-[11px] text-white/60 uppercase tracking-wider">ціна заявки</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Картка 3: CARO CARP -->
+            <div class="w-[300px] md:w-[350px] shrink-0 snap-start relative border border-white/10 rounded-[32px] group hover:border-white/20 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(43,86,133,0.35)] transition-all duration-500 bg-grad-3 p-4 flex flex-col">
+                <div class="h-72 md:h-80 relative overflow-hidden rounded-[24px]">
+                    <img src="images/CARO%20CARP.webp" alt="CARO CARP" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                
+                <div class="px-4 pb-4 pt-6 relative z-10 flex-grow flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold mb-3 text-center uppercase tracking-widest text-white">CARO CARP</h3>
+                        <p class="text-white/80 text-sm text-center mb-8 min-h-[60px]">
+                            Шоурум рибної ловлі CaroCarp в місті Луцьк
+                        </p>
+                    </div>
+                    
+                    <div class="flex justify-between items-center pt-6 border-t border-white/20">
+                        <div class="text-center w-1/2 border-r border-white/20">
+                            <span class="block text-xl font-bold text-white mb-1">89 664</span>
+                            <span class="block text-[11px] text-white/60 uppercase tracking-wider">кліків</span>
+                        </div>
+                        <div class="text-center w-1/2">
+                            <span class="block text-xl font-bold text-white mb-1">308 грн</span>
+                            <span class="block text-[11px] text-white/60 uppercase tracking-wider">ціна заявки</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Social networks strip -->
+        <div class="mt-16 w-full opacity-45 hover:opacity-100 transition-opacity duration-500">
+            <img src="images/Icon-social.webp" alt="Соціальні мережі" class="w-full h-auto object-contain grayscale hover:grayscale-0 transition-all duration-500">
+        </div>
+    </section>
+
+    <!-- Services / Packages Section -->
+    <section id="packages" class="py-20 px-6 md:px-12 max-w-6xl mx-auto">
+        <h3 class="font-display text-xl mb-4 text-center text-gray-400 uppercase tracking-widest">
+            Послуги та ціни
+        </h3>
+        <h2 class="font-display text-4xl md:text-5xl mb-16 text-center font-bold">
+            Для тебе я зроблю
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
+            
+            <!-- Package 1: ВЕДЕННЯ СТОРІНКИ -->
+            <div class="bg-grad-2 p-[2.5px] rounded-[48px] phone-glow-pink transition-all duration-500 hover:-translate-y-2 flex flex-col min-h-[640px] max-w-[380px] mx-auto w-full">
+                <div class="bg-[#131114] rounded-[46px] p-6 h-full flex flex-col justify-between flex-grow relative overflow-hidden">
+                    
+                    <div>
+                        <!-- Status Bar -->
+                        <div class="flex justify-between items-center px-6 pt-5 pb-3 relative z-30 select-none">
+                            <span class="text-[12px] font-semibold tracking-tight text-white/90">4:20</span>
+                            <!-- Dynamic Island Notch -->
+                            <div class="absolute left-1/2 transform -translate-x-1/2 top-5 w-20 h-5 bg-grad-2 rounded-full opacity-90 shadow-[0_0_10px_rgba(255,255,255,0.05)]"></div>
+                            <!-- Status Icons -->
+                            <div class="flex items-center gap-1.5 text-white/90">
+                                <svg class="w-[15px] h-[11px]" viewBox="0 0 18 12" fill="currentColor">
+                                    <rect x="0" y="8" width="2" height="4" rx="0.5" />
+                                    <rect x="3" y="6" width="2" height="6" rx="0.5" />
+                                    <rect x="6" y="4" width="2" height="8" rx="0.5" />
+                                    <rect x="9" y="1.5" width="2" height="10.5" rx="0.5" />
+                                    <rect x="12" y="0" width="2" height="12" rx="0.5" class="opacity-30" />
+                                </svg>
+                                <svg class="w-[15px] h-[11px]" viewBox="0 0 16 12" fill="currentColor">
+                                    <path d="M8 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-2.5-4.5a4 4 0 0 1 5 0 .6.6 0 0 1-.8.9 2.8 2.8 0 0 0-3.4 0 .6.6 0 0 1-.8-.9zm-2-2a7 7 0 0 1 9 0 .6.6 0 0 1-.8.9 5.8 5.8 0 0 0-7.4 0 .6.6 0 0 1-.8-.9z" />
+                                </svg>
+                                <svg class="w-[22px] h-[11px]" viewBox="0 0 22 11" fill="currentColor">
+                                    <rect x="0.5" y="0.5" width="18" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1" />
+                                    <rect x="2.5" y="2.5" width="14" height="6" rx="1" />
+                                    <path d="M20 3.5v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <!-- Title -->
+                        <h3 class="font-display text-white text-[19px] font-extrabold uppercase tracking-widest text-center mt-8 mb-10 pb-4 border-b border-white/5">
+                            ВЕДЕННЯ СТОРІНКИ
+                        </h3>
+                        
+                        <!-- Bullets -->
+                        <ul class="flex flex-col gap-[18px] text-[14px] text-gray-200 px-2">
+                            <li class="flex items-start gap-3">
+                                <span class="w-[9px] h-[9px] rounded-full bg-[#1B60A9] shrink-0 mt-[6px]"></span>
+                                <span class="leading-relaxed">Створення маркетингової стратегії</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-[9px] h-[9px] rounded-full bg-[#1B60A9] shrink-0 mt-[6px]"></span>
+                                <span class="leading-relaxed">Упакування сторінки</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-[9px] h-[9px] rounded-full bg-[#1B60A9] shrink-0 mt-[6px]"></span>
+                                <span class="leading-relaxed">Створення контент-плану</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-[9px] h-[9px] rounded-full bg-[#1B60A9] shrink-0 mt-[6px]"></span>
+                                <span class="leading-relaxed">Прописання сценаріїв для відео і постановка ТЗ</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-[9px] h-[9px] rounded-full bg-[#1B60A9] shrink-0 mt-[6px]"></span>
+                                <span class="leading-relaxed">Підбиття статистики по акаунту</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-[9px] h-[9px] rounded-full bg-[#1B60A9] shrink-0 mt-[6px]"></span>
+                                <span class="leading-relaxed">Щомісячний звіт</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <a href="#contact" class="block w-full bg-grad-2 hover:opacity-90 rounded-full py-4 text-base text-white font-semibold text-center transition-all duration-300 hover:scale-[1.02] shadow-[0_4px_20px_rgba(185,137,120,0.25)]">
+                            Залишити заявку
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 2: ПРОСУВАННЯ БРЕНДУ -->
+            <div class="bg-grad-1 p-[2.5px] rounded-[48px] phone-glow-purple transition-all duration-500 hover:-translate-y-2 flex flex-col min-h-[640px] max-w-[380px] mx-auto w-full">
+                <div class="bg-[#131114] rounded-[46px] p-6 h-full flex flex-col justify-between flex-grow relative overflow-hidden">
+                    
+                    <div>
+                        <!-- Status Bar -->
+                        <div class="flex justify-between items-center px-6 pt-5 pb-3 relative z-30 select-none">
+                            <span class="text-[12px] font-semibold tracking-tight text-white/90">4:20</span>
+                            <!-- Dynamic Island Notch -->
+                            <div class="absolute left-1/2 transform -translate-x-1/2 top-5 w-20 h-5 bg-grad-1 rounded-full opacity-90 shadow-[0_0_10px_rgba(255,255,255,0.05)]"></div>
+                            <!-- Status Icons -->
+                            <div class="flex items-center gap-1.5 text-white/90">
+                                <svg class="w-[15px] h-[11px]" viewBox="0 0 18 12" fill="currentColor">
+                                    <rect x="0" y="8" width="2" height="4" rx="0.5" />
+                                    <rect x="3" y="6" width="2" height="6" rx="0.5" />
+                                    <rect x="6" y="4" width="2" height="8" rx="0.5" />
+                                    <rect x="9" y="1.5" width="2" height="10.5" rx="0.5" />
+                                    <rect x="12" y="0" width="2" height="12" rx="0.5" class="opacity-30" />
+                                </svg>
+                                <svg class="w-[15px] h-[11px]" viewBox="0 0 16 12" fill="currentColor">
+                                    <path d="M8 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-2.5-4.5a4 4 0 0 1 5 0 .6.6 0 0 1-.8.9 2.8 2.8 0 0 0-3.4 0 .6.6 0 0 1-.8-.9zm-2-2a7 7 0 0 1 9 0 .6.6 0 0 1-.8.9 5.8 5.8 0 0 0-7.4 0 .6.6 0 0 1-.8-.9z" />
+                                </svg>
+                                <svg class="w-[22px] h-[11px]" viewBox="0 0 22 11" fill="currentColor">
+                                    <rect x="0.5" y="0.5" width="18" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1" />
+                                    <rect x="2.5" y="2.5" width="14" height="6" rx="1" />
+                                    <path d="M20 3.5v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <!-- Title -->
+                        <h3 class="font-display text-white text-[19px] font-extrabold uppercase tracking-widest text-center mt-8 mb-10 pb-4 border-b border-white/5">
+                            ПРОСУВАННЯ БРЕНДУ
+                        </h3>
+                        
+                        <!-- Bullets -->
+                        <ul class="flex flex-col gap-[18px] text-[14px] text-gray-200 px-2">
+                            <li class="flex items-start gap-3">
+                                <span class="w-[9px] h-[9px] rounded-full bg-[#1B60A9] shrink-0 mt-[6px]"></span>
+                                <span class="leading-relaxed">Створення маркетингової стратегії</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-[9px] h-[9px] rounded-full bg-[#1B60A9] shrink-0 mt-[6px]"></span>
+                                <span class="leading-relaxed">Рекомендації до пакування сторінки</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-[9px] h-[9px] rounded-full bg-[#1B60A9] shrink-0 mt-[6px]"></span>
+                                <span class="leading-relaxed">Прописання ТЗ для креативів</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-[9px] h-[9px] rounded-full bg-[#1B60A9] shrink-0 mt-[6px]"></span>
+                                <span class="leading-relaxed">Створення креативів і запуск таргету</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-[9px] h-[9px] rounded-full bg-[#1B60A9] shrink-0 mt-[6px]"></span>
+                                <span class="leading-relaxed">Постійний моніторинг статистики рекламного кабінету</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <a href="#contact" class="block w-full bg-grad-1 hover:opacity-90 rounded-full py-4 text-base text-white font-semibold text-center transition-all duration-300 hover:scale-[1.02] shadow-[0_4px_20px_rgba(22,97,173,0.25)]">
+                            Залишити заявку
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 3: КОМПЛЕКСНИЙ -->
+            <div class="bg-grad-6 p-[2.5px] rounded-[48px] phone-glow-blue transition-all duration-500 hover:-translate-y-2 flex flex-col min-h-[640px] max-w-[380px] mx-auto w-full">
+                <div class="bg-[#131114] rounded-[46px] p-6 h-full flex flex-col justify-between flex-grow relative overflow-hidden">
+                    
+                    <div>
+                        <!-- Status Bar -->
+                        <div class="flex justify-between items-center px-6 pt-5 pb-3 relative z-30 select-none">
+                            <span class="text-[12px] font-semibold tracking-tight text-white/90">4:20</span>
+                            <!-- Dynamic Island Notch -->
+                            <div class="absolute left-1/2 transform -translate-x-1/2 top-5 w-20 h-5 bg-grad-6 rounded-full opacity-90 shadow-[0_0_10px_rgba(255,255,255,0.05)]"></div>
+                            <!-- Status Icons -->
+                            <div class="flex items-center gap-1.5 text-white/90">
+                                <svg class="w-[15px] h-[11px]" viewBox="0 0 18 12" fill="currentColor">
+                                    <rect x="0" y="8" width="2" height="4" rx="0.5" />
+                                    <rect x="3" y="6" width="2" height="6" rx="0.5" />
+                                    <rect x="6" y="4" width="2" height="8" rx="0.5" />
+                                    <rect x="9" y="1.5" width="2" height="10.5" rx="0.5" />
+                                    <rect x="12" y="0" width="2" height="12" rx="0.5" class="opacity-30" />
+                                </svg>
+                                <svg class="w-[15px] h-[11px]" viewBox="0 0 16 12" fill="currentColor">
+                                    <path d="M8 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-2.5-4.5a4 4 0 0 1 5 0 .6.6 0 0 1-.8.9 2.8 2.8 0 0 0-3.4 0 .6.6 0 0 1-.8-.9zm-2-2a7 7 0 0 1 9 0 .6.6 0 0 1-.8.9 5.8 5.8 0 0 0-7.4 0 .6.6 0 0 1-.8-.9z" />
+                                </svg>
+                                <svg class="w-[22px] h-[11px]" viewBox="0 0 22 11" fill="currentColor">
+                                    <rect x="0.5" y="0.5" width="18" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1" />
+                                    <rect x="2.5" y="2.5" width="14" height="6" rx="1" />
+                                    <path d="M20 3.5v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <!-- Title -->
+                        <h3 class="font-display text-white text-[19px] font-extrabold uppercase tracking-widest text-center mt-8 mb-10 pb-4 border-b border-white/5">
+                            КОМПЛЕКСНИЙ
+                        </h3>
+                        
+                        <!-- Bullets -->
+                        <ul class="flex flex-col gap-[18px] text-[14px] text-gray-200 px-2">
+                            <li class="flex items-start gap-3">
+                                <span class="w-[9px] h-[9px] rounded-full bg-[#1B60A9] shrink-0 mt-[6px]"></span>
+                                <span class="leading-relaxed">Створення маркетингової стратегії</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-[9px] h-[9px] rounded-full bg-[#1B60A9] shrink-0 mt-[6px]"></span>
+                                <span class="leading-relaxed">Упакування сторінки</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-[9px] h-[9px] rounded-full bg-[#1B60A9] shrink-0 mt-[6px]"></span>
+                                <span class="leading-relaxed">Прописання сценаріїв для відео і постановка ТЗ</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-[9px] h-[9px] rounded-full bg-[#1B60A9] shrink-0 mt-[6px]"></span>
+                                <span class="leading-relaxed">Прописання ТЗ для креативів</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-[9px] h-[9px] rounded-full bg-[#1B60A9] shrink-0 mt-[6px]"></span>
+                                <span class="leading-relaxed">Створення креативів і запуск таргету</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-[9px] h-[9px] rounded-full bg-[#1B60A9] shrink-0 mt-[6px]"></span>
+                                <span class="leading-relaxed">Створення креативів і запуск таргету</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <a href="#contact" class="block w-full bg-grad-6 hover:opacity-90 rounded-full py-4 text-base text-white font-semibold text-center transition-all duration-300 hover:scale-[1.02] shadow-[0_4px_20px_rgba(79,91,227,0.25)]">
+                            Залишити заявку
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Diagnostics / Audits Section -->
+    <section class="py-20 px-6 md:px-12 max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-center gap-12 lg:gap-16 relative">
+        <div class="absolute -right-20 top-1/4 w-72 h-72 bg-grad-3 rounded-full blur-[90px] opacity-25 -z-10 animate-pulse-slow"></div>
+
+        <div class="lg:w-1/2 text-left">
+            <h4 class="text-xs md:text-sm text-white/80 font-normal tracking-wide mb-3">
+                Ми готові проаналізувати ваші діючі рекламні кампанії!
+            </h4>
+            <h2 class="font-display text-4xl md:text-[44px] leading-tight mb-6 font-extrabold text-white">
+                Отримайте діагностику<br>вашого проєкту
+            </h2>
+            <p class="text-white text-[16px] font-semibold leading-relaxed mb-4 max-w-md">
+                В рамках діагностики ми проводимо аналіз критично важливих аспектів.
+            </p>
+            <p class="text-gray-400 text-[14px] leading-relaxed mb-10 max-w-md">
+                Діагностика займає до 3-х робочих днів. Завершивши, ми показуємо наше бачення на основі діючих рекламних кампаній, як ми могли б покращити результат і впровадити масштабування вашого проєкту
+            </p>
+            <a href="#contact" class="bg-grad-6 hover:opacity-90 rounded-full px-8 py-4 text-white text-sm font-semibold tracking-wide transition-all duration-300 shadow-[0_4px_20px_rgba(79,151,199,0.3)] hover:shadow-[0_4px_25px_rgba(79,91,227,0.4)] hover:scale-105 inline-block text-center">
+                Залишити заявку
+            </a>
+        </div>
+
+        <div class="lg:w-1/2 w-full flex flex-col sm:flex-row gap-6 lg:justify-end">
+            <!-- Stat card 1: Blue-Peach -->
+            <div class="w-full sm:w-[250px] max-w-[320px] mx-auto sm:max-w-none sm:mx-0 h-[340px] bg-grad-3 rounded-[32px] p-8 flex flex-col justify-between transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(27,96,169,0.25)]">
+                <div>
+                    <div class="text-7xl font-extrabold tracking-tighter text-white">90</div>
+                    <div class="text-3xl font-extrabold text-white mt-2 leading-none">країн</div>
+                </div>
+                <p class="text-[12px] text-white/85 leading-relaxed font-normal">
+                    світу, де я реалізувала просування
+                </p>
+            </div>
+            <!-- Stat card 2: Terracotta-Rose -->
+            <div class="w-full sm:w-[250px] max-w-[320px] mx-auto sm:max-w-none sm:mx-0 h-[340px] bg-grad-2 rounded-[32px] p-8 flex flex-col justify-start transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(185,137,120,0.25)]">
+                <div class="text-7xl font-extrabold tracking-tighter text-white">120+</div>
+                <p class="text-3xl font-extrabold text-white mt-4 leading-tight">
+                    реальних<br>кейсів
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By Section -->
+    <section class="py-16 px-6 md:px-12 max-w-6xl mx-auto border-t border-white/5 mt-10">
+        <div class="text-left mb-12">
+            <div class="text-[11px] md:text-xs text-gray-400 font-semibold uppercase tracking-[0.2em] mb-2">
+                Ваш успіх - моя мета!
+            </div>
+            <h3 class="font-display text-3xl md:text-4xl font-bold text-white">
+                Мені довіряють
+            </h3>
+        </div>
+        <div class="flex flex-nowrap justify-between items-center gap-6 md:gap-10 overflow-x-auto scrollbar-hide w-full opacity-80 select-none mt-10">
+            <!-- Logo 1: Active -->
+            <div class="flex items-center gap-3.5 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer shrink-0">
+                <svg class="w-14 h-14 text-white fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <span class="text-3xl font-extrabold text-white tracking-wider uppercase">Active</span>
+            </div>
+            <!-- Logo 2: Asterisk -->
+            <div class="flex items-center gap-3.5 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer shrink-0">
+                <svg class="w-14 h-14 text-white fill-none stroke-current stroke-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 2v20M2 12h20M7.05 7.05l9.9 9.9M7.05 16.95l9.9-9.9"/>
+                </svg>
+                <span class="text-3xl font-extrabold text-white tracking-wider uppercase">Asterisk</span>
+            </div>
+            <!-- Logo 3: Cloudform -->
+            <div class="flex items-center gap-3.5 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer shrink-0">
+                <svg class="w-14 h-14 text-white fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
+                </svg>
+                <span class="text-3xl font-extrabold text-white tracking-wider uppercase">Cloudform</span>
+            </div>
+            <!-- Logo 4: Chain -->
+            <div class="flex items-center gap-3.5 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer shrink-0">
+                <svg class="w-14 h-14 text-white fill-none stroke-current stroke-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                </svg>
+                <span class="text-3xl font-extrabold text-white tracking-wider uppercase">Chain</span>
+            </div>
+            <!-- Logo 5: NewDuet -->
+            <div class="flex items-center gap-3.5 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer shrink-0">
+                <svg class="w-14 h-14 text-white fill-none stroke-current stroke-[2.5]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="8.5" cy="12" r="5.5" />
+                    <circle cx="15.5" cy="12" r="5.5" />
+                </svg>
+                <span class="text-3xl font-extrabold text-white tracking-wider uppercase">NewDuet</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cooperation Timeline Steps Section -->
+    <section class="py-20 px-6 md:px-12 max-w-6xl mx-auto relative overflow-visible">
+        
+        <div class="flex flex-col lg:flex-row justify-between lg:items-end gap-6 mb-16">
+            <div class="text-left">
+                <div class="text-[11px] md:text-xs text-gray-400 font-semibold uppercase tracking-[0.2em] mb-2">
+                    Digital послуги для розвитку бізнесу
+                </div>
+                <h2 class="font-display text-4xl md:text-[44px] leading-tight font-extrabold text-white">
+                    Як почати співпрацю?
+                </h2>
+            </div>
+            <div class="shrink-0 text-left lg:text-right">
+                <a href="#contact" class="bg-grad-6 hover:opacity-90 rounded-full px-8 py-4 text-white text-sm font-semibold tracking-wide transition-all duration-300 shadow-[0_4px_20px_rgba(79,151,199,0.3)] hover:shadow-[0_4px_25px_rgba(79,91,227,0.4)] hover:scale-105 inline-block text-center">
+                    Залишити заявку
+                </a>
+            </div>
+        </div>
+
+        <!-- Steps timeline row -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-12 relative overflow-visible">
+            
+            <!-- Step 1 -->
+            <div class="bg-grad-2 rounded-[32px] p-6 h-[220px] flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] hover:shadow-lg relative overflow-visible">
+                <span class="text-4xl font-extrabold text-white leading-none">01</span>
+                <p class="text-sm font-semibold text-white/95 leading-snug">
+                    Залиште заявку зараз для обговорення вашого проєкту
+                </p>
+                <!-- Bottom arrow to Step 2 -->
+                <svg class="absolute left-[80%] top-[102%] w-[80px] h-10 text-white/30 pointer-events-none hidden lg:block z-10" viewBox="0 0 100 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 3">
+                    <path d="M 5 5 C 35 35, 65 35, 95 5" />
+                    <path d="M 87 10 L 95 5 L 90 1" stroke-dasharray="none" stroke="currentColor" fill="none" />
+                </svg>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="bg-grad-5 rounded-[32px] p-6 h-[220px] flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] hover:shadow-lg relative overflow-visible">
+                <span class="text-4xl font-extrabold text-white leading-none">02</span>
+                <p class="text-sm font-semibold text-white/95 leading-snug">
+                    Дебриф: ми проведемо перше онлайн-знайомство
+                </p>
+                <!-- Top arrow to Step 3 -->
+                <svg class="absolute left-[80%] -top-[22%] w-[80px] h-10 text-white/30 pointer-events-none hidden lg:block z-10" viewBox="0 0 100 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 3">
+                    <path d="M 5 35 C 35 5, 65 5, 95 35" />
+                    <path d="M 87 30 L 95 35 L 91 26" stroke-dasharray="none" stroke="currentColor" fill="none" />
+                </svg>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="bg-grad-3 rounded-[32px] p-6 h-[220px] flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] hover:shadow-lg relative overflow-visible">
+                <span class="text-4xl font-extrabold text-white leading-none">03</span>
+                <p class="text-sm font-semibold text-white/95 leading-snug">
+                    Після отримання вхідних даних ми організуємо зустріч
+                </p>
+                <!-- Bottom arrow to Step 4 -->
+                <svg class="absolute left-[80%] top-[102%] w-[80px] h-10 text-white/30 pointer-events-none hidden lg:block z-10" viewBox="0 0 100 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 3">
+                    <path d="M 5 5 C 35 35, 65 35, 95 5" />
+                    <path d="M 87 10 L 95 5 L 90 1" stroke-dasharray="none" stroke="currentColor" fill="none" />
+                </svg>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="bg-grad-4 rounded-[32px] p-6 h-[220px] flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] hover:shadow-lg relative overflow-visible">
+                <span class="text-4xl font-extrabold text-white leading-none">04</span>
+                <p class="text-sm font-semibold text-white/95 leading-snug">
+                    Ми оформлюємо офер, в якому чітко зазначаємо стратегію
+                </p>
+                <!-- Top arrow to Step 5 -->
+                <svg class="absolute left-[80%] -top-[22%] w-[80px] h-10 text-white/30 pointer-events-none hidden lg:block z-10" viewBox="0 0 100 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 3">
+                    <path d="M 5 35 C 35 5, 65 5, 95 35" />
+                    <path d="M 87 30 L 95 35 L 91 26" stroke-dasharray="none" stroke="currentColor" fill="none" />
+                </svg>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="bg-grad-7 rounded-[32px] p-6 h-[220px] flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] hover:shadow-lg relative overflow-visible">
+                <span class="text-4xl font-extrabold text-white leading-none">05</span>
+                <p class="text-sm font-semibold text-white/95 leading-snug">
+                    Тестуємо, оптимізуємо та масштабуємо ваш проєкт!
+                </p>
+                <!-- Floating Party Horn Memoji -->
+                <div class="absolute -top-11 -right-6 w-[90px] h-[90px] select-none z-20 animate-float pointer-events-none">
+                    <img src="images/Type=Happy.webp" alt="Party Horn Memoji" class="w-full h-auto">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contacts & Booking Form Section -->
+    <section id="contact" class="py-24 px-6 md:px-12 max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-16 relative overflow-visible">
+        <div class="lg:w-1/2 text-left">
+            <h2 class="font-display text-4xl md:text-[44px] leading-[1.15] mb-8 font-extrabold text-white">
+                Отримайте консультацію<br>щодо просування<br>вашого бізнесу
+            </h2>
+            
+            <!-- Collage of Memoji, Cat, and Cactus -->
+            <div class="flex items-end select-none mt-12 gap-4 sm:gap-8 md:gap-12 relative w-full h-40 sm:h-52 md:h-64 overflow-visible">
+                <!-- Memoji Laptop -->
+                <div class="w-[150px] sm:w-[200px] md:w-[260px] transition-all duration-300 hover:scale-105 shrink-0">
+                    <img src="images/Type=Work.webp" alt="Work" class="w-full h-auto">
+                </div>
+                <!-- Cactus and Cat Group -->
+                <div class="flex items-end gap-0 shrink-0">
+                    <!-- Cactus -->
+                    <div class="w-[90px] sm:w-[120px] md:w-[160px] -mr-[55px] sm:-mr-[80px] md:-mr-[105px] transition-all duration-500 hover:scale-105 animate-float-slow shrink-0 relative z-10">
+                        <img src="images/flying-cactus.webp" alt="Cactus" class="w-full h-auto">
+                    </div>
+                    <!-- Sphynx Cat -->
+                    <div class="w-[110px] sm:w-[140px] md:w-[190px] transition-all duration-500 hover:scale-105 shrink-0">
+                        <img src="images/sphynx-cat.webp" alt="Cat" class="w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Redesigned Form Card -->
+        <div class="lg:w-[480px] w-full bg-grad-5 border border-white/10 rounded-[44px] p-8 md:p-10 relative shadow-[0_20px_50px_rgba(79,91,227,0.2)]">
+            <h3 class="text-2xl md:text-3xl font-bold text-center text-white mb-8">Залиште свою заявку</h3>
+            <form class="flex flex-col gap-5">
+                <input type="text" placeholder="Ім'я" class="bg-white/10 border border-white/20 rounded-[18px] px-5 py-4 text-white placeholder-white/60 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all duration-300">
+                <input type="text" placeholder="Telegram or Instagram*" class="bg-white/10 border border-white/20 rounded-[18px] px-5 py-4 text-white placeholder-white/60 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all duration-300">
+                <input type="tel" placeholder="Телефон" class="bg-white/10 border border-white/20 rounded-[18px] px-5 py-4 text-white placeholder-white/60 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all duration-300">
+                
+                <button type="submit" class="mt-4 bg-grad-1 hover:opacity-95 rounded-full py-4 text-base text-white font-semibold text-center transition-all duration-300 hover:scale-[1.02] shadow-[0_4px_25px_rgba(22,97,173,0.3)]">
+                    Залишити заявку
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full bg-[#131114] rounded-t-[40px] md:rounded-t-[50px] py-16 px-6 md:px-12 mt-24 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col items-center gap-10">
+            
+            <!-- Main Footer Row -->
+            <div class="w-full flex flex-col md:flex-row justify-between items-center gap-8">
+                <!-- Left Logo -->
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center text-white text-3xl font-extrabold tracking-tight font-display select-none">
+                        M
+                        <span class="relative inline-block">
+                            i
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-white absolute -top-1.5 left-1/2 transform -translate-x-1/2 bg-[#131114] p-0.5 rounded-full">
+                                <path d="M12 14c-1.8 0-3.5 1-3.5 3 0 2 1.5 3 3.5 3s3.5-1 3.5-3c0-2-1.7-3-3.5-3z" />
+                                <circle cx="6.5" cy="11.5" r="1.8" />
+                                <circle cx="10" cy="8" r="1.8" />
+                                <circle cx="14" cy="8" r="1.8" />
+                                <circle cx="17.5" cy="11.5" r="1.8" />
+                            </svg>
+                        </span>
+                        YA
+                    </div>
+                    <!-- Stacked Subtitle -->
+                    <div class="flex flex-col text-[11px] uppercase tracking-wider text-gray-400 font-medium leading-none gap-0.5">
+                        <span>advertising</span>
+                        <span>agency</span>
+                    </div>
+                </div>
+                
+                <!-- Middle Navigation -->
+                <nav class="flex flex-wrap justify-center gap-6 md:gap-10 text-[15px] font-medium text-gray-300">
+                    <a href="#packages" class="hover:text-white transition-colors duration-300">Продукти</a>
+                    <a href="#services-cards" class="hover:text-white transition-colors duration-300">Що я вирішую</a>
+                    <a href="#services-cards" class="hover:text-white transition-colors duration-300">Кейси</a>
+                    <a href="#about" class="hover:text-white transition-colors duration-300">Про мене</a>
+                </nav>
+                
+                <!-- Right CTA Button -->
+                <a href="#contact" class="bg-grad-2 hover:opacity-90 rounded-[86px] px-7 py-3 text-white text-[15px] font-semibold transition-all duration-300 hover:scale-105 shadow-[0_4px_20px_rgba(185,137,120,0.25)] shrink-0">
+                    Зв'яжися зі мною
+                </a>
+            </div>
+            
+            <!-- Bottom Credits -->
+            <div class="w-full border-t border-white/5 pt-8 flex flex-col items-center gap-3 text-xs text-gray-500 text-center">
+                <div>
+                    &copy; 2026 MIYA. Всі права захищені.
+                </div>
+                <div class="text-gray-400 mt-1">
+                    Розроблено компанією <a href="https://ignivo.agency" target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#B98978] transition-all duration-300 font-semibold inline-flex items-center gap-1 hover:underline">Ignivo <span class="animate-flicker text-sm">🔥</span></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
