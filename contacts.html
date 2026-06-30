@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Контакти Палюх Яни: залишити заявку на діагностику реклами, performance-стратегію або супровід запуску." />
+    <meta name="theme-color" content="#111315" />
+    <meta property="og:title" content="Контакти — Палюх Яна" />
+    <meta property="og:description" content="Напишіть у Telegram або Instagram, щоб обговорити рекламу та наступний крок для бізнесу." />
+    <meta property="og:image" content="https://denysignatenko.github.io/MiYa/assets/analytics-visual.webp" />
+    <link rel="canonical" href="https://denysignatenko.github.io/MiYa/contacts.html" />
+    <link rel="icon" type="image/webp" href="./assets/logo.webp" />
     <title>Контакти - Палюх Яна</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
@@ -36,18 +42,19 @@
           <p class="eyebrow">Куди писати</p>
           <h2>Залиш заявку або напиши напряму</h2>
           <div class="contact-channel-list">
-            <article><span>Telegram</span><strong>@yana_target</strong></article>
-            <article><span>Instagram</span><strong>@yana.performance</strong></article>
+            <article><span>Telegram</span><strong><a href="https://t.me/marrrakuya" rel="me">@marrrakuya</a></strong></article>
+            <article><span>Instagram</span><strong><a href="https://www.instagram.com/marrraku.ya/" rel="me">@marrraku.ya</a></strong></article>
             <article><span>Відповідь</span><strong>до 24 годин</strong></article>
           </div>
         </div>
-        <form class="contact-page-form">
+        <form class="contact-page-form" aria-describedby="contact-privacy">
           <h3>Залиште заявку</h3>
-          <input type="text" name="name" placeholder="Ім'я" />
-          <input type="text" name="contact" placeholder="Telegram або Instagram" />
-          <input type="tel" name="phone" placeholder="Телефон" />
-          <textarea name="message" placeholder="Коротко про бізнес і задачу"></textarea>
+          <label><span class="sr-only">Ім'я</span><input type="text" name="name" placeholder="Ім'я" autocomplete="name" required /></label>
+          <label><span class="sr-only">Telegram або Instagram</span><input type="text" name="contact" placeholder="Telegram або Instagram" autocomplete="username" required /></label>
+          <label><span class="sr-only">Телефон</span><input type="tel" name="phone" placeholder="Телефон" autocomplete="tel" inputmode="tel" /></label>
+          <label><span class="sr-only">Коротко про бізнес і задачу</span><textarea name="message" placeholder="Коротко про бізнес і задачу"></textarea></label>
           <button type="submit">Надіслати заявку</button>
+          <small id="contact-privacy">Надсилаючи заявку, ви погоджуєтеся з <a href="./privacy.html">політикою конфіденційності</a>.</small>
         </form>
       </section>
 
@@ -73,7 +80,7 @@
     <footer class="site-footer">
       <a class="brand" href="./index.html" aria-label="Палюх Яна"><img src="./assets/logo.webp" alt="" /><span>performance<br />marketing</span></a>
       <nav><a href="./approach.html">Підхід</a><a href="./cases.html">Кейси</a><a href="./services.html">Послуги</a><a href="./contacts.html" aria-current="page">Контакти</a></nav>
-      <a href="./contacts.html#contact-form">Зв'язатися з Яною</a>
+      <div class="footer-socials"><a href="https://t.me/marrrakuya" rel="me">Telegram</a><a href="https://www.instagram.com/marrraku.ya/" rel="me">Instagram</a></div>
     </footer>
   </body>
 </html>

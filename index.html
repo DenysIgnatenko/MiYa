@@ -4,8 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Палюх Яна - performance-маркетолог для бізнесів, яким потрібні заявки, аналітика і прогнозований ріст без хаосу в рекламі." />
+    <meta name="theme-color" content="#111315" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="uk_UA" />
+    <meta property="og:title" content="Палюх Яна — performance-маркетинг для бізнесу" />
+    <meta property="og:description" content="Стратегія, запуск і аналітика реклами з фокусом на заявки, продажі та економіку бізнесу." />
+    <meta property="og:image" content="https://denysignatenko.github.io/MiYa/assets/analytics-visual.webp" />
+    <meta property="og:url" content="https://denysignatenko.github.io/MiYa/" />
+    <link rel="canonical" href="https://denysignatenko.github.io/MiYa/" />
+    <link rel="icon" type="image/webp" href="./assets/logo.webp" />
     <title>Палюх Яна - performance-маркетинг для бізнесу</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Палюх Яна — performance marketing",
+        "url": "https://denysignatenko.github.io/MiYa/",
+        "image": "https://denysignatenko.github.io/MiYa/assets/portrait-wide.webp",
+        "sameAs": ["https://t.me/marrrakuya", "https://www.instagram.com/marrraku.ya/"],
+        "areaServed": "UA",
+        "serviceType": ["Аудит реклами", "Запуск performance-реклами", "Супровід та масштабування"]
+      }
+    </script>
   </head>
   <body>
     <header class="site-header">
@@ -59,17 +80,17 @@
         </div>
 
         <div class="metric-card metric-card-a">
-          <strong>200+</strong>
-          <span>проєктів у digital</span>
+          <strong>Audit</strong>
+          <span>діагностика реклами та воронки</span>
         </div>
         <div class="metric-card metric-card-b">
           <img src="./assets/cat-sleeping.webp" alt="" aria-hidden="true" />
-          <strong>$15 млн</strong>
-          <span>керованого рекламного бюджету</span>
+          <strong>Launch</strong>
+          <span>структура, запуск і перші тести</span>
         </div>
         <div class="metric-card metric-card-c">
-          <strong>4.8/5</strong>
-          <span>середня оцінка співпраці</span>
+          <strong>Growth</strong>
+          <span>оптимізація та масштабування</span>
         </div>
       </section>
 
@@ -189,6 +210,10 @@
           <article><span>03</span><strong>Lead quality</strong><p>якість заявок, а не тільки їх кількість</p></article>
           <article><span>04</span><strong>Next step</strong><p>що тестуємо або вимикаємо далі</p></article>
         </div>
+        <figure class="analytics-visual">
+          <img src="./assets/analytics-visual.webp" alt="Ілюстрація аналітичного звіту з графіком, воронкою та панелями метрик" loading="lazy" />
+          <figcaption>Ілюстрація формату звітності — без вигаданих клієнтських даних.</figcaption>
+        </figure>
       </section>
 
       <section id="services" class="services section-grid">
@@ -217,21 +242,21 @@
 
       <section class="testimonials">
         <div class="section-heading">
-          <p class="eyebrow">Соціальний доказ</p>
-          <h2>Що має відчувати клієнт у співпраці</h2>
+          <p class="eyebrow">Принципи співпраці</p>
+          <h2>Що отримує бізнес у процесі роботи</h2>
         </div>
         <div class="testimonial-grid">
           <article>
-            <p>“Нарешті зрозуміло, куди йде бюджет і чому одні кампанії ростуть, а інші треба вимикати.”</p>
-            <span>власниця локального бізнесу</span>
+            <p>Прозору картину бюджету: куди йдуть гроші, що працює та що варто вимкнути.</p>
+            <span>прозорість</span>
           </article>
           <article>
-            <p>“Після діагностики стало видно, що проблема була не тільки в рекламі, а й у посадковій сторінці.”</p>
-            <span>e-commerce проєкт</span>
+            <p>Чесну діагностику всієї воронки — від офера й реклами до посадкової сторінки та продажу.</p>
+            <span>системний погляд</span>
           </article>
           <article>
-            <p>“Звіти стали не формальністю, а планом дій для команди продажів і контенту.”</p>
-            <span>сервісний бізнес</span>
+            <p>Звіт не заради звіту, а короткий план наступних дій для реклами, контенту й продажів.</p>
+            <span>наступний крок</span>
           </article>
         </div>
       </section>
@@ -280,12 +305,13 @@
           <p class="eyebrow">Консультація</p>
           <h2>Покажи проєкт Яні, якщо хочеш зрозуміти, де реклама може приносити більше.</h2>
         </div>
-        <form>
+        <form aria-describedby="form-privacy">
           <h3>Залиште заявку</h3>
-          <input type="text" name="name" placeholder="Ім'я" />
-          <input type="text" name="contact" placeholder="Telegram або Instagram" />
-          <input type="tel" name="phone" placeholder="Телефон" />
+          <label><span class="sr-only">Ім'я</span><input type="text" name="name" placeholder="Ім'я" autocomplete="name" required /></label>
+          <label><span class="sr-only">Telegram або Instagram</span><input type="text" name="contact" placeholder="Telegram або Instagram" autocomplete="username" required /></label>
+          <label><span class="sr-only">Телефон</span><input type="tel" name="phone" placeholder="Телефон" autocomplete="tel" inputmode="tel" /></label>
           <button type="submit">Отримати консультацію</button>
+          <small id="form-privacy">Надсилаючи заявку, ви погоджуєтеся з <a href="./privacy.html">політикою конфіденційності</a>.</small>
         </form>
       </section>
     </main>
@@ -301,7 +327,7 @@
         <a href="./services.html">Послуги</a>
         <a href="./contacts.html">Контакти</a>
       </nav>
-      <a href="./contacts.html#contact-form">Зв'язатися з Яною</a>
+      <div class="footer-socials"><a href="https://t.me/marrrakuya" rel="me">Telegram</a><a href="https://www.instagram.com/marrraku.ya/" rel="me">Instagram</a></div>
     </footer>
   </body>
 </html>

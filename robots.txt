@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://denysignatenko.github.io/MiYa/sitemap.xml

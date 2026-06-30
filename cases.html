@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Кейси Палюх Яни: performance-реклама для бізнесів, де важливі заявки, продажі, ROMI і контроль бюджету." />
+    <meta name="theme-color" content="#111315" />
+    <meta property="og:image" content="https://denysignatenko.github.io/MiYa/assets/analytics-visual.webp" />
+    <link rel="canonical" href="https://denysignatenko.github.io/MiYa/cases.html" />
+    <link rel="icon" type="image/webp" href="./assets/logo.webp" />
     <title>Кейси - Палюх Яна</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
@@ -72,14 +76,14 @@
 
       <section id="contact" class="contact">
         <div class="contact-copy"><p class="eyebrow">Свій результат</p><h2>Хочеш побачити, який кейс можна зробити з твого бізнесу?</h2></div>
-        <form><h3>Залиште заявку</h3><input type="text" name="name" placeholder="Ім'я" /><input type="text" name="contact" placeholder="Telegram або Instagram" /><input type="tel" name="phone" placeholder="Телефон" /><button type="submit">Отримати консультацію</button></form>
+        <form><h3>Залиште заявку</h3><label><span class="sr-only">Ім'я</span><input type="text" name="name" placeholder="Ім'я" autocomplete="name" required /></label><label><span class="sr-only">Telegram або Instagram</span><input type="text" name="contact" placeholder="Telegram або Instagram" autocomplete="username" required /></label><label><span class="sr-only">Телефон</span><input type="tel" name="phone" placeholder="Телефон" autocomplete="tel" inputmode="tel" /></label><button type="submit">Отримати консультацію</button><small>Надсилаючи заявку, ви погоджуєтеся з <a href="./privacy.html">політикою конфіденційності</a>.</small></form>
       </section>
     </main>
 
     <footer class="site-footer">
       <a class="brand" href="./index.html" aria-label="Палюх Яна"><img src="./assets/logo.webp" alt="" /><span>performance<br />marketing</span></a>
       <nav><a href="./approach.html">Підхід</a><a href="./cases.html" aria-current="page">Кейси</a><a href="./services.html">Послуги</a><a href="./contacts.html">Контакти</a></nav>
-      <a href="./contacts.html#contact-form">Зв'язатися з Яною</a>
+      <div class="footer-socials"><a href="https://t.me/marrrakuya" rel="me">Telegram</a><a href="https://www.instagram.com/marrraku.ya/" rel="me">Instagram</a></div>
     </footer>
   </body>
 </html>
