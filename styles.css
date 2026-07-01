@@ -4208,3 +4208,37 @@ main > section:not(:first-child) {
     padding: 24px 22px;
   }
 }
+
+/* Align and separate service card footnotes */
+.service-grid article {
+  display: flex;
+  min-height: 300px;
+  flex-direction: column;
+}
+
+.service-grid h3 {
+  min-height: 32px;
+  margin: 0 0 14px;
+}
+
+.service-grid p {
+  margin: 0;
+}
+
+.service-grid article > span {
+  width: 100%;
+  min-height: 38px;
+  display: flex;
+  align-items: flex-end;
+  margin-top: auto;
+  border-top: 1px solid rgba(88, 199, 200, 0.12);
+  padding-top: 18px;
+  color: var(--color-cyan);
+  line-height: 1.2;
+}
+
+@media (max-width: 767px) {
+  .service-grid article {
+    min-height: 260px;
+  }
+}
