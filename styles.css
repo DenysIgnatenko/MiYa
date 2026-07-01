@@ -4943,3 +4943,56 @@ body {
   .contact-page-form { height: auto; }
   .approach-visual { bottom: 0; margin-bottom: 0; }
 }
+
+/* Site-wide solid component surfaces — no element gradients */
+.approach-hero-panel,
+.services-hero-card,
+.contacts-card,
+.not-found-card,
+.report-card,
+.report-visual,
+.cases-hero-stats article,
+.method-grid article,
+.workflow li,
+.diagnostic-list div,
+.package-grid article,
+.included-list article,
+.case-method-grid article,
+.service-process li,
+.after-contact li,
+.scope-grid article,
+.service-grid article,
+.process li,
+.contacts-note,
+.service-principles,
+.cases-insight {
+  border: 1px solid rgba(88, 199, 200, 0.16);
+  background-color: var(--color-surface);
+  background-image: none;
+  box-shadow: 0 22px 64px rgba(0, 0, 0, 0.22);
+}
+
+/* Defeat legacy nth-child gradients retained earlier in the stylesheet */
+.approach-hero-panel,
+.services-hero-card,
+.contacts-card,
+.not-found-card,
+.report-card,
+.report-visual,
+.cases-hero-stats article,
+.method-grid article,
+.workflow li,
+.diagnostic-list div,
+.package-grid article,
+.included-list article,
+.case-method-grid article,
+.service-process li,
+.after-contact li,
+.scope-grid article,
+.service-grid article,
+.process li,
+.contacts-note,
+.service-principles,
+.cases-insight {
+  background: var(--color-surface) !important;
+}
