@@ -4011,3 +4011,18 @@ body {
     font-size: 26px;
   }
 }
+
+/* Secondary CTA belongs to the same cyan system as the rest of the UI */
+.secondary {
+  border-color: rgba(88, 199, 200, 0.28);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  box-shadow: none;
+}
+
+.secondary:hover {
+  border-color: var(--color-cyan);
+  background: #20282d;
+  color: var(--color-cyan);
+  box-shadow: 0 14px 34px rgba(88, 199, 200, 0.1);
+}
