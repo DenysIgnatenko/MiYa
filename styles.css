@@ -4026,3 +4026,144 @@ body {
   color: var(--color-cyan);
   box-shadow: 0 14px 34px rgba(88, 199, 200, 0.1);
 }
+
+/* Shared responsive spacing system */
+:root {
+  --layout-max: 1196px;
+  --layout-gutter: 32px;
+  --section-gap: 120px;
+  --card-pad: 30px;
+  --cluster-gap: 18px;
+}
+
+.site-header,
+main {
+  width: min(var(--layout-max), calc(100% - (var(--layout-gutter) * 2)));
+  margin-inline: auto;
+}
+
+main > section {
+  width: 100%;
+  margin-inline: 0;
+}
+
+main > section:first-child,
+main > section.hero,
+main > section.approach-hero,
+main > section.cases-hero,
+main > section.services-hero,
+main > section.contacts-hero,
+main > section.not-found-hero {
+  margin-top: 0;
+}
+
+main > section + section {
+  margin-top: var(--section-gap);
+}
+
+main > section:not(:first-child) {
+  margin-top: var(--section-gap) !important;
+}
+
+.section-grid,
+.contacts-form-section,
+.proof-board,
+.case-method,
+.included-services {
+  column-gap: clamp(48px, 6vw, 78px);
+}
+
+.approach-list,
+.service-grid,
+.fit-grid,
+.testimonial-grid,
+.case-grid,
+.method-grid,
+.package-grid,
+.included-list,
+.case-method-grid,
+.contact-channel-list,
+.proof-metrics,
+.faq-list {
+  gap: var(--cluster-gap);
+}
+
+.metric-card,
+.fit-grid article,
+.approach-list article,
+.service-grid article,
+.testimonial-grid article,
+.case-card-content,
+.method-grid article,
+.package-grid article,
+.included-list article,
+.case-method-grid article,
+.contact-channel-list article,
+.proof-metrics article,
+.scope-grid article {
+  padding: var(--card-pad);
+}
+
+.site-footer {
+  width: min(1280px, 100%);
+  margin: var(--section-gap) auto 0;
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --layout-gutter: 24px;
+    --section-gap: 88px;
+    --card-pad: 26px;
+    --cluster-gap: 16px;
+  }
+
+  .site-header,
+  main {
+    width: calc(100% - (var(--layout-gutter) * 2));
+  }
+
+  .section-grid,
+  .contacts-form-section,
+  .proof-board,
+  .case-method,
+  .included-services {
+    column-gap: 0;
+    row-gap: 36px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --layout-gutter: 16px;
+    --section-gap: 68px;
+    --card-pad: 22px;
+    --cluster-gap: 14px;
+  }
+
+  .site-header,
+  main {
+    width: calc(100% - 32px);
+  }
+
+  .hero,
+  .approach-hero,
+  .cases-hero,
+  .services-hero,
+  .contacts-hero,
+  .not-found-hero {
+    padding-top: 72px;
+  }
+
+  .section-grid,
+  .contacts-form-section,
+  .proof-board,
+  .case-method,
+  .included-services {
+    row-gap: 28px;
+  }
+
+  .site-footer {
+    margin-top: var(--section-gap);
+    padding-inline: 20px;
+  }
+}
