@@ -4237,6 +4237,10 @@ main > section:not(:first-child) {
   line-height: 1.2;
 }
 
+.metric-card-b img {
+  bottom: 100px;
+}
+
 @media (max-width: 767px) {
   .service-grid article {
     min-height: 260px;
