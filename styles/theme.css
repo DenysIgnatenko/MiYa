@@ -1,0 +1,265 @@
+/* Unified three-colour system: graphite, cyan, coral */
+:root {
+  --color-base: #121619;
+  --color-surface: #1a2024;
+  --color-cyan: #58c7c8;
+  --color-coral: #e48b70;
+  --color-ink: #f3f1ec;
+  --color-muted: rgba(243, 241, 236, 0.68);
+  --color-line: rgba(88, 199, 200, 0.16);
+  --bg: var(--color-base);
+  --panel: var(--color-surface);
+  --text: var(--color-ink);
+  --muted: var(--color-muted);
+  --blue: var(--color-cyan);
+  --deep-blue: #328f91;
+  --violet: var(--color-cyan);
+  --plum: var(--color-surface);
+  --rose: var(--color-coral);
+  --warm: var(--color-coral);
+  --cactus: var(--color-cyan);
+  --mint: var(--color-cyan);
+  --grad: var(--color-cyan);
+  --grad-warm: rgba(228, 139, 112, 0.12);
+}
+
+body {
+  background:
+    radial-gradient(circle at 82% 8%, rgba(88, 199, 200, 0.075), transparent 30rem),
+    radial-gradient(circle at 12% 62%, rgba(228, 139, 112, 0.055), transparent 26rem),
+    var(--color-base);
+  color: var(--color-ink);
+}
+
+.site-header {
+  border-color: var(--color-line);
+  background: rgba(18, 22, 25, 0.88);
+  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(18px);
+}
+
+.header-cta,
+.primary,
+.contact button,
+.contact-page-form button,
+.site-footer > a:last-child {
+  background: var(--color-cyan);
+  color: var(--color-base);
+  box-shadow: 0 14px 34px rgba(88, 199, 200, 0.16);
+}
+
+.header-cta:hover,
+.primary:hover,
+.contact button:hover,
+.contact-page-form button:hover,
+.site-footer > a:last-child:hover {
+  background: #6dd4d5;
+  box-shadow: 0 20px 46px rgba(88, 199, 200, 0.24);
+}
+
+.eyebrow,
+.service-grid article > span,
+.fit-grid article > span,
+.testimonial-grid article > span,
+.metric-card strong,
+.process li > span,
+.service-process li > span,
+.after-contact li > span,
+.workflow li > span,
+.approach-list article > span,
+.case-method-grid article > span {
+  color: var(--color-cyan);
+}
+
+.secondary {
+  border-color: rgba(228, 139, 112, 0.28);
+  background: rgba(228, 139, 112, 0.07);
+}
+
+.secondary:hover {
+  border-color: rgba(228, 139, 112, 0.52);
+  background: rgba(228, 139, 112, 0.12);
+}
+
+.portrait-frame,
+.metric-card,
+.trusted-strip,
+.trusted-strip div,
+.fit-grid article,
+.approach-list article,
+.service-grid article,
+.method-grid article,
+.workflow li,
+.diagnostic-list div,
+.package-grid article,
+.included-list article,
+.case-method-grid article,
+.process li,
+.service-process li,
+.after-contact li,
+.testimonial-grid article,
+.contact-channel-list article,
+.contacts-card,
+.not-found-card,
+.services-hero-card,
+.report-card,
+.report-visual,
+.case-card,
+.case-card.featured,
+.case-card:nth-child(3),
+.contact,
+.contact-page-form,
+.contacts-note,
+.service-principles,
+.cases-insight,
+.contact form {
+  border-color: var(--color-line);
+  background: var(--color-surface);
+  box-shadow: 0 22px 64px rgba(0, 0, 0, 0.22);
+}
+
+.fit-grid article:nth-child(3),
+.testimonial-grid article:nth-child(2),
+.service-grid article:nth-child(2),
+.package-grid article:nth-child(2),
+.case-card.featured {
+  box-shadow: inset 3px 0 0 rgba(228, 139, 112, 0.72), 0 22px 64px rgba(0, 0, 0, 0.22);
+}
+
+.trusted-strip div + div { border-left-color: rgba(88, 199, 200, 0.12); }
+.case-card > img { filter: saturate(0.82) contrast(1.04); }
+.planet { opacity: 0.1; filter: blur(34px) saturate(0.35); }
+
+/* Requested cleanup: one tone, no coral edge stripes */
+.fit-grid article:nth-child(3),
+.testimonial-grid article:nth-child(2),
+.service-grid article:nth-child(2),
+.package-grid article:nth-child(2),
+.case-card.featured {
+  box-shadow: 0 22px 64px rgba(0, 0, 0, 0.22);
+}
+
+.fit-grid article,
+.testimonial-grid article,
+.service-grid article,
+.package-grid article,
+.case-card,
+.case-card.featured,
+.case-card:nth-child(3),
+.proof-board,
+.proof-metrics article,
+.approach-visual {
+  background: var(--color-surface);
+  border-color: rgba(88, 199, 200, 0.16);
+}
+
+/* Align the approach illustration with the bottom of the third card */
+.approach .section-heading { align-self: stretch; }
+.approach-visual {
+  position: relative;
+  bottom: 14px;
+  flex: 1;
+  min-height: 300px;
+  margin-top: 42px;
+  margin-bottom: 14px;
+}
+.approach .approach-cat,
+.approach .approach-cactus { bottom: 0; }
+.approach-visual::before { bottom: 8px; }
+
+/* Information-first analytics visual */
+.analytics-dashboard {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border: 1px solid rgba(88, 199, 200, 0.18);
+  border-radius: 24px;
+  background: var(--color-surface);
+}
+.analytics-dashboard > img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+  border-radius: 0;
+}
+.analytics-labels {
+  position: absolute;
+  left: 1.55%;
+  right: 1.55%;
+  bottom: 2.8%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.45%;
+  height: 22.5%;
+}
+.analytics-labels article {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(10px, 1.5vw, 24px);
+  text-align: left;
+}
+.analytics-labels strong {
+  color: var(--color-ink);
+  font-size: clamp(13px, 1.45vw, 22px);
+  line-height: 1.12;
+}
+.analytics-labels span {
+  margin-top: 8px;
+  color: var(--color-muted);
+  font-size: clamp(9px, .9vw, 14px);
+  line-height: 1.35;
+}
+.analytics-visual figcaption {
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+@media (max-width: 767px) {
+  .analytics-dashboard { border-radius: 18px; }
+  .analytics-labels strong { font-size: 9px; }
+  .analytics-labels span { display: none; }
+  .analytics-labels article { padding: 7px; }
+}
+
+/* Symmetric contact composition */
+.contacts-form-section { align-items: stretch; }
+.contacts-info {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+.contact-channel-list { margin-top: auto; padding-top: 34px; }
+.contact-channel-list article,
+.contact-channel-list article:nth-child(2),
+.contact-channel-list article:nth-child(3) {
+  background: var(--color-surface);
+  border: 1px solid rgba(88, 199, 200, 0.16);
+}
+.contact-page-form { height: 100%; }
+
+@media (max-width: 1023px) {
+  .contacts-info { display: block; height: auto; }
+  .contact-channel-list { margin-top: 34px; padding-top: 0; }
+  .contact-page-form { height: auto; }
+}
+.site-footer { background: #0d1113; border-color: rgba(88, 199, 200, 0.1); }
+
+.contact input,
+.contact-page-form input,
+.contact-page-form textarea {
+  border-color: rgba(88, 199, 200, 0.16);
+  background: rgba(243, 241, 236, 0.055);
+}
+
+.contact input:focus,
+.contact-page-form input:focus,
+.contact-page-form textarea:focus {
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 0 3px rgba(88, 199, 200, 0.14);
+}

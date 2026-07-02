@@ -9,13 +9,27 @@
     <meta property="og:locale" content="uk_UA" />
     <meta property="og:title" content="Палюх Яна — performance-маркетинг для бізнесу" />
     <meta property="og:description" content="Стратегія, запуск і аналітика реклами з фокусом на заявки, продажі та економіку бізнесу." />
-    <meta property="og:image" content="https://denysignatenko.github.io/MiYa/assets/analytics-visual.webp" />
+    <meta property="og:image" content="https://denysignatenko.github.io/MiYa/assets/social-preview.png" />
+    <meta property="og:image:width" content="1731" />
+    <meta property="og:image:height" content="909" />
+    <meta property="og:image:alt" content="Стратегія performance-маркетингу: шлях від аналітики до росту" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://denysignatenko.github.io/MiYa/assets/social-preview.png" />
     <meta property="og:url" content="https://denysignatenko.github.io/MiYa/" />
     <link rel="canonical" href="https://denysignatenko.github.io/MiYa/" />
-    <link rel="icon" type="image/webp" href="./assets/logo.webp" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="apple-touch-icon" href="./assets/favicon.svg" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <link rel="preload" as="image" href="./assets/portrait-wide.webp" fetchpriority="high" />
     <title>Палюх Яна - performance-маркетинг для бізнесу</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preload" href="./assets/fonts/GothamPro.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./assets/fonts/GothamPro-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/theme.css" />
+    <link rel="stylesheet" href="./styles/motion.css" />
+    <link rel="stylesheet" href="./styles/components.css" />
     <script src="./motion.js" defer></script>
+    <script src="./site-ui.js" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -32,7 +46,7 @@
   <body>
     <header class="site-header">
       <a class="brand" href="./index.html" aria-label="Палюх Яна">
-        <img src="./assets/logo.webp" alt="" />
+        <img src="./assets/logo.webp" alt="" width="224" height="37" decoding="async" />
         <span>performance<br />marketing</span>
       </a>
       <nav aria-label="Навігація">
@@ -59,8 +73,8 @@
           <span>performance</span>
           <span>2026</span>
         </div>
-        <img class="planet planet-a" src="./assets/planet.webp" alt="" />
-        <img class="planet planet-b" src="./assets/planet-glow.webp" alt="" />
+        <img class="planet planet-a" src="./assets/planet.webp" alt="" width="215" height="215" decoding="async" />
+        <img class="planet planet-b" src="./assets/planet-glow.webp" alt="" width="332" height="332" decoding="async" />
 
         <div class="hero-copy">
           <p class="eyebrow">Реклама як система росту</p>
@@ -76,7 +90,7 @@
 
         <div class="hero-visual">
           <div class="portrait-frame">
-            <img src="./assets/portrait-wide.webp" alt="Портрет Палюх Яни" />
+            <img src="./assets/portrait-wide.webp" alt="Портрет Палюх Яни" width="326" height="326" decoding="async" fetchpriority="high" />
           </div>
         </div>
 
@@ -85,7 +99,7 @@
           <span>діагностика реклами та воронки</span>
         </div>
         <div class="metric-card metric-card-b">
-          <img src="./assets/cat-sleeping.webp" alt="" aria-hidden="true" />
+          <img src="./assets/cat-sleeping.webp" alt="" aria-hidden="true" width="461" height="461" decoding="async" />
           <strong>Launch</strong>
           <span>структура, запуск і перші тести</span>
         </div>
@@ -140,8 +154,8 @@
           <h2>Не запуск заради запуску, а рекламна система з логікою росту</h2>
           <div class="approach-visual" aria-hidden="true">
             <span>strategy lab</span>
-            <img class="approach-cactus" src="./assets/cactus-cooperation.webp" alt="" loading="lazy" />
-            <img class="approach-cat" src="./assets/cat-sphynx.webp" alt="" loading="lazy" />
+            <img class="approach-cactus" src="./assets/cactus-cooperation.webp" alt="" loading="lazy" width="272" height="272" decoding="async" />
+            <img class="approach-cat" src="./assets/cat-sphynx.webp" alt="" loading="lazy" width="461" height="461" decoding="async" />
           </div>
         </div>
         <div class="approach-list">
@@ -170,7 +184,7 @@
         </div>
         <div class="case-grid">
           <article class="case-card">
-            <img src="./assets/case-bakery.webp" alt="Грузинська пекарня" loading="lazy" />
+            <img src="./assets/case-bakery.webp" alt="Грузинська пекарня" loading="lazy" width="153" height="153" decoding="async" />
             <h3>Грузинська пекарня</h3>
             <dl>
               <div><dt>Бюджет</dt><dd>$150</dd></div>
@@ -179,7 +193,7 @@
             </dl>
           </article>
           <article class="case-card featured">
-            <img src="./assets/case-clothes.webp" alt="Магазин одягу" loading="lazy" />
+            <img src="./assets/case-clothes.webp" alt="Магазин одягу" loading="lazy" width="153" height="153" decoding="async" />
             <h3>Магазин одягу</h3>
             <dl>
               <div><dt>Заявки</dt><dd>312</dd></div>
@@ -188,7 +202,7 @@
             </dl>
           </article>
           <article class="case-card">
-            <img src="./assets/case-nails.webp" alt="Манікюрний салон" loading="lazy" />
+            <img src="./assets/case-nails.webp" alt="Манікюрний салон" loading="lazy" width="153" height="153" decoding="async" />
             <h3>Манікюрний салон</h3>
             <dl>
               <div><dt>Записи</dt><dd>146</dd></div>
@@ -213,7 +227,7 @@
         </div>
         <figure class="analytics-visual">
           <div class="analytics-dashboard">
-            <img src="./assets/analytics-visual-v2.webp" alt="Аналітична панель із графіком динаміки, воронкою та порівнянням показників" width="1536" height="1024" loading="lazy" />
+            <img src="./assets/analytics-visual-v2.webp" alt="Аналітична панель із графіком динаміки, воронкою та порівнянням показників" width="1536" height="1024" loading="lazy" decoding="async" />
             <div class="analytics-labels" aria-label="Ключові показники у звіті">
               <article><strong>CPA / CPL</strong><span>вартість цільової дії</span></article>
               <article><strong>ROAS / ROMI</strong><span>окупність вкладень</span></article>
@@ -323,13 +337,14 @@
             <button type="submit">Отримати консультацію</button>
             <small id="form-privacy">Надсилаючи заявку, ви погоджуєтеся з <a href="./privacy.html">політикою конфіденційності</a>.</small>
           </div>
+          <p class="form-status" aria-live="polite" aria-atomic="true"></p>
         </form>
       </section>
     </main>
 
     <footer class="site-footer">
       <a class="brand" href="./index.html" aria-label="Палюх Яна">
-        <img src="./assets/logo.webp" alt="" />
+        <img src="./assets/logo.webp" alt="" width="224" height="37" decoding="async" />
         <span>performance<br />marketing</span>
       </a>
       <nav>
