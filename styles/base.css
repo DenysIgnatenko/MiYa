@@ -631,6 +631,8 @@ main > section:not(.hero) {
 }
 
 .service-grid article {
+  display: flex;
+  flex-direction: column;
   border: 0;
   background: var(--grad-warm);
 }
@@ -641,6 +643,30 @@ main > section:not(.hero) {
 
 .service-grid article:nth-child(3) {
   background: linear-gradient(23.65deg, rgba(33, 80, 255, 1) 1%, rgba(137, 88, 81, 1) 100%);
+}
+
+.service-grid article:nth-child(4) {
+  background: linear-gradient(51.34deg, rgba(27, 96, 169, 1) 0%, rgba(143, 92, 81, 1) 100%);
+}
+
+.service-grid article:nth-child(5) {
+  background: linear-gradient(3.71deg, rgba(79, 151, 199, 1) 0%, rgba(79, 91, 227, 1) 100%);
+}
+
+.text-link {
+  display: inline-flex;
+  width: max-content;
+  margin-top: auto;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.text-link::after {
+  content: " →";
 }
 
 .approach-list span {
@@ -1603,7 +1629,7 @@ main > section:not(.hero) {
 
 .package-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 18px;
 }
 
