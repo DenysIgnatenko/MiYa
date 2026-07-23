@@ -2,6 +2,38 @@
   font-synthesis: none;
 }
 
+/* Final approach page overrides */
+.approach-hero-panel { overflow: hidden; }
+.approach-page .approach-hero-panel img {
+  right: 10px;
+  bottom: 0;
+  width: 218px;
+  height: 218px;
+  object-fit: contain;
+  object-position: right bottom;
+}
+.method-grid article { position: relative; }
+.method-grid article > span {
+  display: inline-flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+}
+@media (max-width: 1023px) {
+  .method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .approach-page .approach-hero-panel img { right: 4px; width: 178px; height: 178px; }
+  .method-grid { grid-template-columns: 1fr; }
+}
+
 @font-face {
   font-family: "Gotham Pro";
   src: url("../assets/fonts/GothamPro-Light.woff2") format("woff2");
@@ -2949,4 +2981,35 @@ main > section:not(.hero) {
   .contact-page-form textarea {
     min-height: 52px;
   }
+}
+
+/* Final approach page overrides, kept last for cascade priority */
+.approach-page .approach-hero-panel { overflow: hidden; }
+.approach-page .approach-hero-panel img {
+  right: 10px;
+  bottom: 0;
+  width: 218px;
+  height: 218px;
+  object-fit: contain;
+  object-position: right bottom;
+}
+.approach-page .method-grid article > span {
+  display: inline-flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+}
+@media (max-width: 1023px) {
+  .approach-page .method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .approach-page .approach-hero-panel img { right: 4px; width: 178px; height: 178px; }
+  .approach-page .method-grid { grid-template-columns: 1fr; }
 }
