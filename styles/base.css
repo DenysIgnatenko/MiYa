@@ -3013,3 +3013,21 @@ main > section:not(.hero) {
   .approach-page .approach-hero-panel img { right: 4px; width: 178px; height: 178px; }
   .approach-page .method-grid { grid-template-columns: 1fr; }
 }
+
+/* Cases cat: preserve the square asset and anchor it neatly in the insight card */
+.cases-insight img {
+  right: 34px;
+  bottom: 0;
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  object-position: right bottom;
+}
+@media (max-width: 767px) {
+  .cases-insight img {
+    right: 50%;
+    width: 240px;
+    height: 240px;
+    transform: translateX(50%);
+  }
+}
