@@ -3023,6 +3023,48 @@ main > section:not(.hero) {
   object-fit: contain;
   object-position: right bottom;
 }
+
+/* Services hero cat: keep the square artwork crisp inside its card */
+.services-hero-card img {
+  right: 12px;
+  bottom: -18px;
+  width: 240px;
+  height: 240px;
+  object-fit: contain;
+  object-position: right bottom;
+}
+
+/* Services packages: four cards on the first row, the fifth centered below */
+.package-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.package-grid article:nth-child(5) {
+  grid-column: 2 / span 2;
+}
+
+@media (max-width: 1240px) {
+  .package-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .package-grid article:nth-child(5) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .services-hero-card img {
+    right: 50%;
+    width: 220px;
+    height: 220px;
+    transform: translateX(50%);
+  }
+
+  .package-grid {
+    grid-template-columns: 1fr;
+  }
+}
 @media (max-width: 767px) {
   .cases-insight img {
     right: 50%;
