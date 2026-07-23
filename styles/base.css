@@ -853,7 +853,8 @@ main > section:not(.hero) {
   min-height: 0;
 }
 
-.proof-board {
+.proof-board,
+.proof-board.is-visible {
   display: none;
 }
 
