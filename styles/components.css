@@ -1169,6 +1169,25 @@ main > section:not(:first-child) {
   }
 }
 
+/* Services hero cat: preserve the square artwork proportions */
+.services-hero-card img {
+  right: 12px;
+  bottom: -18px;
+  width: 240px;
+  height: 240px;
+  object-fit: contain;
+  object-position: right bottom;
+}
+
+@media (max-width: 767px) {
+  .services-hero-card img {
+    right: 50%;
+    width: 220px;
+    height: 220px;
+    transform: translateX(50%);
+  }
+}
+
 /* Mobile navigation, stable media and global interface utilities */
 html {
   scrollbar-gutter: stable;
